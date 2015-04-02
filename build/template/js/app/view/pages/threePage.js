@@ -1,4 +1,4 @@
-define(['text!./three.html', 'css!./three.css', 'map', 'model', 'router', 'css3d'], function(html, css, SiteMap, SiteModel, SiteRouter) {
+define(['text!./three.html', 'css!./three.css', 'map', 'model', 'router', 'css3d', 'csstween'], function(html, css, SiteMap, SiteModel, SiteRouter) {
     var view = Athena.view.BasePage.extend({
         id : 'three-page',
         className : 'page',

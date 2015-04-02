@@ -1,4 +1,4 @@
-define(['text!./work.html', 'css!./work.css', 'map', 'model', 'router', 'scroller'], function(html, css, SiteMap, SiteModel, SiteRouter, Scroller) {
+define(['text!./work.html', 'css!./work.css', 'map', 'model', 'router', 'scroller', 'csstween'], function(html, css, SiteMap, SiteModel, SiteRouter, Scroller) {
     var view = Athena.view.BasePage.extend({
         id : 'work-page',
         className : 'page',

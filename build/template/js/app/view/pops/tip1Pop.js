@@ -1,4 +1,4 @@
-define(['text!./tip1.html', 'css!./tip1.css', 'map', 'model', 'router', './basePop'], function(html, css, SiteMap, SiteModel, SiteRouter, BasePop) {
+define(['text!./tip1.html', 'css!./tip1.css', 'map', 'model', 'router', './basePop', 'csstween'], function(html, css, SiteMap, SiteModel, SiteRouter, BasePop) {
     var view = BasePop.extend({
         id : "tip1-pop",
         init : function() {

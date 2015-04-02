@@ -1,4 +1,4 @@
-define(['text!./header.html', 'css!./header.css', 'map', 'model', 'router'], function(html, css, SiteMap, SiteModel, SiteRouter) {
+define(['text!./header.html', 'css!./header.css', 'map', 'model', 'router','csstween'], function(html, css, SiteMap, SiteModel, SiteRouter) {
     var view = Athena.view.BasePage.extend({
         id : 'header',
         className : 'page',

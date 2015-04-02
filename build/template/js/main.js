@@ -8,8 +8,8 @@ require.config({
         'css-builder' : 'libs/require/requirePlugin/css-builder',
         'normalize' : 'libs/require/requirePlugin/normalize',
         'jquery' : 'libs/jquery/jquery-2.1.3.min',
-        'zepto' : 'libs/zepto/zepto',
-        'bone' : 'libs/bone/bone',
+        'zepto' : 'libs/zepto/zepto.min',
+        'bone' : 'libs/bone/bone.min',
         'csstween' : 'libs/csstween/csstween',
         'athena' : 'libs/athena/Athena',
         // app基本类地址

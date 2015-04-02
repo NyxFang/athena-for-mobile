@@ -1,4 +1,4 @@
-define(['map', 'model', 'router'], function(SiteMap, SiteModel, SiteRouter) {
+define(['map', 'model', 'router','csstween'], function(SiteMap, SiteModel, SiteRouter) {
     var view = Athena.view.BasePage.extend({
         id : 'preloader0',
         className : 'pop',
