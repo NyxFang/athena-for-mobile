@@ -10,8 +10,8 @@ require.config({
         'jquery' : 'libs/jquery/jquery-2.1.3.min',
         'zepto' : 'libs/zepto/zepto.min',
         'bone' : 'libs/bone/bone.min',
-        'csstween' : 'libs/csstween/csstween',
-        'athena' : 'libs/athena/Athena',
+        'csstween' : 'libs/csstween/csstween.min',
+        'athena' : 'libs/athena/Athena.min',
         // app基本类地址
         'map' : 'app/base/map',
         'model' : 'app/base/model',
