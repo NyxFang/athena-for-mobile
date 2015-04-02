@@ -25,7 +25,7 @@ require.config({
         'jquery.validate-additional-methods' : 'libs/jquery/validatePlugin/additional-methods',
         'jquery.qrcode' : 'libs/jquery/jquery.qrcode.min',
         'json2' : 'libs/json2.min',
-        'css3d' : 'libs/css3d/css3d'
+        'css3d' : 'libs/css3d/css3d.min'
         // app其他辅助类
     },
     shim : {
