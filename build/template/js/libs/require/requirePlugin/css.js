@@ -17,12 +17,12 @@
  * Chome 3 - 26
  * Firefox 3.5 - 19
  * Opera 10 - 12
- * 
+ *
  * browserling.com used for virtual testing environment
  *
  * Credit to B Cavalier & J Hann for the IE 6 - 9 method,
  * refined with help from Martin Cermak
- * 
+ *
  * Sources that helped along the way:
  * - https://developer.mozilla.org/en-US/docs/Browser_detection_using_the_user_agent
  * - http://www.phpied.com/when-is-a-stylesheet-really-loaded/
@@ -41,7 +41,7 @@ define(function() {
 
   // use <style> @import load method (IE < 9, Firefox < 18)
   var useImportLoad = false;
-  
+
   // set to false for explicit <link> load checking when onload doesn't work perfectly (webkit)
   var useOnload = true;
 
@@ -68,11 +68,11 @@ define(function() {
     curStyle = document.createElement('style');
     head.appendChild(curStyle);
     curSheet = curStyle.styleSheet || curStyle.sheet;
-  }
+  };
   var ieCnt = 0;
   var ieLoads = [];
   var ieCurCallback;
-  
+
   var createIeLoad = function(url) {
     ieCnt++;
     if (ieCnt == 32) {
@@ -81,20 +81,20 @@ define(function() {
     }
     curSheet.addImport(url);
     curStyle.onload = function(){ processIeLoad() };
-  }
+  };
   var processIeLoad = function() {
     ieCurCallback();
- 
+
     var nextLoad = ieLoads.shift();
- 
+
     if (!nextLoad) {
       ieCurCallback = null;
       return;
     }
- 
+
     ieCurCallback = nextLoad[1];
     createIeLoad(nextLoad[0]);
-  }
+  };
   var importLoad = function(url, callback) {
     if (!curSheet || !curSheet.addImport)
       createStyle();
@@ -121,7 +121,7 @@ define(function() {
         } catch(e) {}
       }, 10);
     }
-  }
+  };
 
   // <link> load method
   var linkLoad = function(url, callback) {
@@ -133,7 +133,7 @@ define(function() {
         link.onload = function() {};
         // for style dimensions queries, a short delay can still be necessary
         setTimeout(callback, 7);
-      }
+      };
     else
       var loadInterval = setInterval(function() {
         for (var i = 0; i < document.styleSheets.length; i++) {
@@ -146,7 +146,7 @@ define(function() {
       }, 10);
     link.href = url;
     head.appendChild(link);
-  }
+  };
 
 //>>excludeEnd('excludeRequireCss')
   cssAPI.normalize = function(name, normalize) {
@@ -154,14 +154,14 @@ define(function() {
       name = name.substr(0, name.length - 4);
 
     return normalize(name);
-  }
+  };
 
 //>>excludeStart('excludeRequireCss', pragmas.excludeRequireCss)
   cssAPI.load = function(cssId, req, load, config) {
 
     (useImportLoad ? importLoad : linkLoad)(req.toUrl(cssId + '.css'), load);
 
-  }
+  };
 
 //>>excludeEnd('excludeRequireCss')
   return cssAPI;
