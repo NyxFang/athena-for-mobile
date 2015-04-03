@@ -3,8 +3,8 @@ require.config({
     baseUrl : './js/',
     paths : {
         // athena框架配置地址
-        'text' : 'libs/require/requirePlugin/text',
-        'css' : 'libs/require/requirePlugin/css',
+        'text' : 'libs/require/requirePlugin/text.min',
+        'css' : 'libs/require/requirePlugin/css.min',
         'css-builder' : 'libs/require/requirePlugin/css-builder',
         'normalize' : 'libs/require/requirePlugin/normalize',
         'jquery' : 'libs/jquery/jquery-2.1.3.min',
