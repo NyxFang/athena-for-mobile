@@ -64,6 +64,7 @@
 	<target name="compile">
 		<echo message="compile" />
 		<antcall target="__optimize" />
+		<antcall target="__css-fix" />
 		<antcall target="__cdn-format" />
 		<antcall target="__mainjs-to-built" />
 		<antcall target="index-to-built" />
@@ -129,6 +130,16 @@
 		</replaceregexp>
 		<replaceregexp match="images-built/" replace="images-built/" flags="g" byline="false" encoding="UTF-8">
 			<fileset dir="${siteroot}" includes="index.html" />
+		</replaceregexp>
+	</target>
+
+	<target name="__css-fix">
+		<echo message="css-fix" />
+		<replaceregexp match="url\(\&#34;..\/" replace="url\(\&#34;${css_fix_path}" flags="g" byline="false" encoding="UTF-8">
+			<fileset dir="${js-built}app/" includes="**/*.js" />
+		</replaceregexp>
+		<replaceregexp match="url\(\&#39;..\/" replace="url\(\&#39;${css_fix_path}" flags="g" byline="false" encoding="UTF-8">
+			<fileset dir="${js-built}app/" includes="**/*.js" />
 		</replaceregexp>
 	</target>
 
