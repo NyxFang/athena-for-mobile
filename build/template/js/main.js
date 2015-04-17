@@ -76,7 +76,7 @@ require(['bone', 'athena', 'map', 'router', 'model'], function(Bone, Athena, Sit
         //    init();
         //}
 
-        Athena.on(Athena.PRELOAD_PREPARE, init);
+        Athena.once(Athena.PRELOAD_PREPARE, init);
         Athena.preloader({
             data : SiteMap.preloader0,
             el : $("#preloader0")
