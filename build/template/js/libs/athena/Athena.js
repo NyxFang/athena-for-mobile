@@ -1,6 +1,6 @@
 /*!
- * VERSION: 1.0.0
- * DATE: 2015-04-02
+ * VERSION: 1.1.0
+ * DATE: 2015-04-23
  * GIT:https://github.com/shrekshrek/athena-for-mobile
  *
  * @author: Shrek.wang, shrekshrek@gmail.com
@@ -192,10 +192,14 @@
                             $.each(this._tempData, function(index, obj) {
                                 _data = obj.data?obj.data:obj;
                                 var _page = _self._curPages[_data.depth];
-                                _self.listenToOnce(_page, _self.TRANSITION_OUT_COMPLETE, function() {
-                                    _self._flowOutComplete(_data);
-                                });
-                                _page.transitionOut();
+                                if(_page){
+                                    _self.listenToOnce(_page, _self.TRANSITION_OUT_COMPLETE, function() {
+                                        _self._flowOutComplete(_data);
+                                    });
+                                    _page.transitionOut();
+                                }else{
+                                    _self._isFlowing = false;
+                                }
                             });
                         } else {
                             if (typeof(this._tempData) === 'number') {
@@ -208,10 +212,14 @@
                                 _data.depth = _self._checkDepth(this._tempData.depth);
                             }
                             var _page = _self._curPages[_data.depth];
-                            _self.listenToOnce(_page, _self.TRANSITION_OUT_COMPLETE, function() {
-                                _self._flowOutComplete(_data);
-                            });
-                            _page.transitionOut();
+                            if(_page){
+                                _self.listenToOnce(_page, _self.TRANSITION_OUT_COMPLETE, function() {
+                                    _self._flowOutComplete(_data);
+                                });
+                                _page.transitionOut();
+                            }else{
+                                _self._isFlowing = false;
+                            }
                         }
                     break;
                 }

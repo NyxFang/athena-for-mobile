@@ -17,7 +17,7 @@ define(['text!./work.html', 'css!./work.css', 'map', 'model', 'router', 'scrolle
 
             CT.set(this.$el, {
                 opacity : 0,
-                display : 'none'
+                visibility : 'hidden'
             });
         },
         destroy : function() {
@@ -30,7 +30,7 @@ define(['text!./work.html', 'css!./work.css', 'map', 'model', 'router', 'scrolle
             var _self = this;
             view.__super__.transitionIn.apply(this);
             CT.set(this.$el, {
-                display : 'block'
+                visibility : 'visible'
             });
             CT.to(this.$el, 0.5, {
                 opacity : 1,
@@ -46,7 +46,7 @@ define(['text!./work.html', 'css!./work.css', 'map', 'model', 'router', 'scrolle
             view.__super__.transitionOut.apply(this);
             CT.to(this.$el, 0.5, {
                 opacity : 0,
-                display : 'none',
+                visibility : 'hidden',
                 onEnd : function() {
                     _self.transitionOutComplete();
                 }

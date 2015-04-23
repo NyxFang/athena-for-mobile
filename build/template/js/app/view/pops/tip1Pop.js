@@ -9,7 +9,7 @@ define(['text!./tip1.html', 'css!./tip1.css', 'map', 'model', 'router', './baseP
 
             CT.set(this.$el, {
                 opacity : 0,
-                display : 'none'
+                visibility : 'hidden'
             });
         },
         resize : function() {
@@ -19,7 +19,7 @@ define(['text!./tip1.html', 'css!./tip1.css', 'map', 'model', 'router', './baseP
             var _self = this;
             view.__super__.transitionIn.apply(this);
             CT.set(this.$el, {
-                display : 'block'
+                visibility : 'visible'
             });
             CT.to(this.$el, 0.3, {
                 opacity : 1,
@@ -33,7 +33,7 @@ define(['text!./tip1.html', 'css!./tip1.css', 'map', 'model', 'router', './baseP
             view.__super__.transitionOut.apply(this);
             CT.to(this.$el, 0.3, {
                 opacity : 0,
-                display : 'none',
+                visibility : 'hidden',
                 onEnd : function() {
                     _self.transitionOutComplete();
                 }

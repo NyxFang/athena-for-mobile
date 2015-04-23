@@ -13,7 +13,7 @@ define(['text!./preloader.html', 'css!./preloader.css', 'map', 'model', 'router'
 
             CT.set(this.$el, {
                 opacity : 0,
-                display : 'none'
+                visibility : 'hidden'
             });
         },
         resize : function() {
@@ -22,9 +22,11 @@ define(['text!./preloader.html', 'css!./preloader.css', 'map', 'model', 'router'
         transitionIn : function() {
             var _self = this;
             view.__super__.transitionIn.apply(this);
+            CT.set(this.$el, {
+                visibility : 'visible'
+            });
             CT.to(this.$el, 0.5, {
                 opacity : 1,
-                display : 'block',
                 onEnd : function() {
                     _self.transitionInComplete();
                 }
@@ -40,7 +42,7 @@ define(['text!./preloader.html', 'css!./preloader.css', 'map', 'model', 'router'
             view.__super__.transitionOut.apply(this);
             CT.to(this.$el, 0.5, {
                 opacity : 0,
-                display : 'none',
+                visibility : 'hidden',
                 onEnd : function() {
                     _self.transitionOutComplete();
                 }

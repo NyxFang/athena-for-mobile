@@ -21,7 +21,7 @@ define(['map', 'model', 'router','csstween'], function(SiteMap, SiteModel, SiteR
             var _self = this;
             view.__super__.transitionIn.apply(this);
             CT.set(this.$el, {
-                display : 'block'
+                visibility : 'visible'
             });
             CT.to(this.$el, 0.5, {
                 opacity : 1,
@@ -40,7 +40,7 @@ define(['map', 'model', 'router','csstween'], function(SiteMap, SiteModel, SiteR
             view.__super__.transitionOut.apply(this);
             CT.to(this.$el, 0.5, {
                 opacity : 0,
-                display: 'none',
+                visibility : 'hidden',
                 onEnd : function() {
                     _self.transitionOutComplete();
                 }
