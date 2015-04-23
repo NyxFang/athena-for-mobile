@@ -189,18 +189,30 @@
                     case "off":
                         var _data = {};
                         if (this._tempData.length !== undefined) {
-                            $.each(this._tempData, function(index, obj) {
-                                _data = obj.data?obj.data:obj;
+                            var _fine = true;
+                            for(var i in this._tempData){
+                                var _obj = this._tempData[i];
+                                _data = _obj.data?_obj.data:_obj;
                                 var _page = _self._curPages[_data.depth];
-                                if(_page){
+                                if(!_page){
+                                    _fine = false;
+                                    break;
+                                }
+                            }
+
+                            if(_fine){
+                                for(var j in this._tempData){
+                                    var _obj = this._tempData[j];
+                                    _data = _obj.data?_obj.data:_obj;
+                                    var _page = _self._curPages[_data.depth];
                                     _self.listenToOnce(_page, _self.TRANSITION_OUT_COMPLETE, function() {
                                         _self._flowOutComplete(_data);
                                     });
                                     _page.transitionOut();
-                                }else{
-                                    _self._isFlowing = false;
                                 }
-                            });
+                            }else{
+                                _self._isFlowing = false;
+                            }
                         } else {
                             if (typeof(this._tempData) === 'number') {
                                 _data.depth = this._tempData;
